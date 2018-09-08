@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import {
   Image,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import ResourceCard from '../components/ResourceCard'
+import { WebBrowser } from 'expo'
 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../components/StyledText'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -32,6 +32,7 @@ export default class HomeScreen extends React.Component {
             </Text>
           </View>
           <Text style={styles.heading}>Featured Resources</Text>
+          <ResourceCard />
         </ScrollView>
 
         {/* <View style={styles.tabBarInfoContainer}>
@@ -46,14 +47,14 @@ export default class HomeScreen extends React.Component {
   }
 
   _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
+    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode')
+  }
 
   _handleHelpPress = () => {
     WebBrowser.openBrowserAsync(
       'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -115,4 +116,4 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
   }
-});
+})
