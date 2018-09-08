@@ -1,16 +1,40 @@
 import React from 'react'
 import ResourceCard from './ResourceCard'
 import { View, Text, StyleSheet } from 'react-native'
-import { WebBrowser } from 'expo'
+import axios from 'axios'
 
-const FeaturedResourcesList = () => (
-  <View style={styles.container}>
-    <Text style={styles.heading}>Featured Resources</Text>
-    <ResourceCard />
-  </View>
-)
+export default class FeaturedResourcesList extends React.Component {
+  state = {
+    featuredCategories: []
+  }
 
-export default FeaturedResourcesList
+  fetchFeaturedResources = async () => {
+    let res = await axios.get('http://localhost:5000/v1/tutorials/featured-categories')
+    console.log(res.data)
+    this.setState({ featuredCategories: res.data.categories })
+  }
+
+  componentDidMount = () => {
+    this.fetchFeaturedResources()
+  }
+
+  renderFeaturedResources = () => {
+    if (this.state.featuredCategories) {
+      return this.state.featuredCategories.map(category => (
+        <ResourceCard resource={category} key={category.slug} />
+      )
+    )}
+  }
+
+  render = () => {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.heading}>Featured Resources</Text>
+        {this.renderFeaturedResources()}
+      </View>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

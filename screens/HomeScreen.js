@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
   },
   infoBox: {
     backgroundColor: '#f6f6f6',
-    paddingTop: 20,
-    paddingHorizontal: 30,
+    paddingVertical: 30,
+    paddingHorizontal: 40,
   },
   contentContainer: {
     paddingTop: 30,
