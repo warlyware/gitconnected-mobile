@@ -7,8 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import ResourceCard from '../components/ResourceCard'
-import { WebBrowser } from 'expo'
+import FeaturedResourcesList from '../components/FeaturedResourcesList'
 
 import { MonoText } from '../components/StyledText'
 
@@ -29,12 +28,10 @@ export default class HomeScreen extends React.Component {
             <Text>
               Welcome to the gitconnected mobile learning app.
               Here you can find, save, and view programming resources of all kinds.
-            </Text>
+          </Text>
           </View>
-          <Text style={styles.heading}>Featured Resources</Text>
-          <ResourceCard />
+          <FeaturedResourcesList />
         </ScrollView>
-
         {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
@@ -45,27 +42,12 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode')
-  }
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    )
-  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  infoBox: {
-    backgroundColor: '#f6f6f6',
-    paddingTop: 20,
-    paddingHorizontal: 30,
   },
   hero: {
     marginTop: 20,
@@ -75,10 +57,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200
   },
-  heading: {
-    fontSize: 28,
-    alignSelf: 'center',
-    marginVertical: 25
+  infoBox: {
+    backgroundColor: '#f6f6f6',
+    paddingTop: 20,
+    paddingHorizontal: 30,
   },
   contentContainer: {
     paddingTop: 30,
