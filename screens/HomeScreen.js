@@ -25,12 +25,19 @@ export default class HomeScreen extends React.Component {
             style={styles.hero}
             source={require('../assets/images/gc-hero.png')}
           />
+          <View style={styles.infoBox}>
+            <Text>
+              Welcome to the gitconnected mobile learning app.
+              Here you can find, save, and view programming resources of all kinds.
+            </Text>
+          </View>
+          <Text style={styles.heading}>Featured Resources</Text>
         </ScrollView>
 
         {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+          <View style={styles.codeHighlightContainer}>
             <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
           </View>
         </View> */}
@@ -54,6 +61,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  infoBox: {
+    backgroundColor: '#f6f6f6',
+    paddingTop: 20,
+    paddingHorizontal: 30,
+  },
   hero: {
     marginTop: 20,
     paddingTop: 50,
@@ -62,11 +74,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200
   },
+  heading: {
+    fontSize: 28,
+    alignSelf: 'center',
+    marginVertical: 25
+  },
   contentContainer: {
     paddingTop: 30,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
   },
   codeHighlightText: {
     color: 'rgba(96,100,109, 0.8)',
@@ -75,12 +89,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.05)',
     borderRadius: 3,
     paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
   },
   tabBarInfoContainer: {
     position: 'absolute',
@@ -106,19 +114,5 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  }
 });
