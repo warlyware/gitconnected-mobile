@@ -30,7 +30,7 @@ export default class HomeScreen extends React.Component {
               Here you can find, save, and view programming resources of all kinds.
           </Text>
           </View>
-          <FeaturedResourcesList />
+          <FeaturedResourcesList navigation={this.props.navigation} />
         </ScrollView>
         {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>

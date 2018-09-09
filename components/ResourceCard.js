@@ -5,14 +5,21 @@ import Image from 'react-native-remote-svg'
 import { WebBrowser } from 'expo'
 
 export default class ResourceCard extends React.Component {
+  handleCardPress = () => {
+    // console.log(this.props.navigation)
+    this.props.navigation.navigate({
+      routeName: 'Category',
+      key: this.props.resource.slug,
+      params: {
+        name: this.props.resource.name
+      }
+    })
+  }
+
   render() {
     let { slug, name, svg } = this.props.resource
     return (
-      <TouchableOpacity onPress={() => {
-        WebBrowser.openBrowserAsync(
-          `https://gitconnected.com`
-        )
-       }}>
+      <TouchableOpacity onPress={this.handleCardPress}>
         <Card>
           <Image
           source={{ uri: svg }}

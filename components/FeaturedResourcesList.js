@@ -2,7 +2,7 @@ import React from 'react'
 import ResourceCard from './ResourceCard'
 import { View, Text, StyleSheet } from 'react-native'
 import axios from 'axios'
-import { API_URL } from '../constants/Network'
+import network from '../constants/Network'
 
 export default class FeaturedResourcesList extends React.Component {
   state = {
@@ -10,7 +10,7 @@ export default class FeaturedResourcesList extends React.Component {
   }
 
   fetchFeaturedResources = async () => {
-    let res = await axios.get(`${API_URL}/v1/tutorials/featured-categories`)
+    let res = await axios.get(`${network.API_URL}/v1/tutorials/featured-categories`)
     this.setState({ featuredCategories: res.data.categories })
   }
 
@@ -21,7 +21,10 @@ export default class FeaturedResourcesList extends React.Component {
   renderFeaturedResources = () => {
     if (this.state.featuredCategories) {
       return this.state.featuredCategories.map(category => (
-        <ResourceCard resource={category} key={category.slug} />
+        <ResourceCard resource={category}
+          key={category.slug}
+          navigation={this.props.navigation}
+        />
       )
     )}
   }
