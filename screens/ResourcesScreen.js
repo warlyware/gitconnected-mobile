@@ -8,9 +8,9 @@ export default class ResourcesScreen extends React.Component {
   state = {
     categories: []
   }
-  static navigationOptions = {
-    title: 'Resources',
-  };
+  // static navigationOptions = {
+  //   header: null,
+  // };
 
   componentDidMount = () => {
     this.fetchResources()
@@ -42,7 +42,6 @@ export default class ResourcesScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
     backgroundColor: '#fff',
   },
 });
