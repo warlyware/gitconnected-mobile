@@ -1,4 +1,4 @@
 export default {
-  API: 'http://bd528021.ngrok.io'
-  // API: 'http://localhost:5000'
+  API_URL: 'http://bd528021.ngrok.io'
+  // API_URL: 'http://localhost:5000'
 }

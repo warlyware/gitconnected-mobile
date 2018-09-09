@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
 import axios from 'axios'
 import network from '../constants/Network'
@@ -10,16 +10,17 @@ export default class ResourcesScreen extends React.Component {
   }
 
   fetchResources = async () => {
-    let res = await axios.get(`${network.API}/v1/tutorials/categories`)
+    let res = await axios.get(`${ network.API_URL }/v1/tutorials/categories`)
     this.setState({ categories: res.data.categories })
   }
 
   handleResourcePress = (resource) => {
-    this.props.navigator.navigate({
+    this.props.navigation.navigate({
       routeName: 'Category',
-      params,
-      action,
-      key: resource.slug
+      key: resource.slug,
+      params: {
+        name: resource.name
+      }
     })
   }
 
@@ -50,5 +51,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
+  }
 });
