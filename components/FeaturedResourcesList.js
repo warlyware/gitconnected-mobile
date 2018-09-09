@@ -10,7 +10,6 @@ export default class FeaturedResourcesList extends React.Component {
 
   fetchFeaturedResources = async () => {
     let res = await axios.get('http://localhost:5000/v1/tutorials/featured-categories')
-    console.log(res.data)
     this.setState({ featuredCategories: res.data.categories })
   }
 

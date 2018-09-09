@@ -6,7 +6,7 @@ import { WebBrowser } from 'expo'
 
 export default class ResourceCard extends React.Component {
   render() {
-    let { slug, title, svg } = this.props.resource
+    let { slug, name, svg } = this.props.resource
     return (
       <TouchableOpacity onPress={() => {
         WebBrowser.openBrowserAsync(
@@ -20,7 +20,7 @@ export default class ResourceCard extends React.Component {
           />
           <View>
             <Text style={styles.name}>
-              {title}
+              {name}
             </Text>
             {/* <Text style={styles.description}>
               This is where a description would go.

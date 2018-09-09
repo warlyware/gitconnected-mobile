@@ -1,25 +1,30 @@
 import React from 'react'
-import { ScrollView, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
 import axios from 'axios'
-import Image from 'react-native-remote-svg'
+import network from '../constants/Network'
 
 export default class ResourcesScreen extends React.Component {
   state = {
     categories: []
   }
-  // static navigationOptions = {
-  //   header: null,
-  // };
+
+  fetchResources = async () => {
+    let res = await axios.get(`${network.API}/v1/tutorials/categories`)
+    this.setState({ categories: res.data.categories })
+  }
+
+  handleResourcePress = (resource) => {
+    this.props.navigator.navigate({
+      routeName: 'Category',
+      params,
+      action,
+      key: resource.slug
+    })
+  }
 
   componentDidMount = () => {
     this.fetchResources()
-  }
-
-  fetchResources = async () => {
-    let res = await axios.get('http://localhost:5000/v1/tutorials/categories')
-    console.log(res.data)
-    this.setState({ categories: res.data.categories })
   }
 
   render() {
@@ -28,9 +33,11 @@ export default class ResourcesScreen extends React.Component {
         <List containerStyle={{ marginBottom: 20 }}>
           {this.state.categories.map(category => (
             <ListItem
+              onPress={() => this.handleResourcePress(category)}
+              key={category.slug}
               roundAvatar
-              key={category.title}
-              title={category.title}
+              avatar={category.image}
+              title={category.name}
             />
           ))}
         </List>
