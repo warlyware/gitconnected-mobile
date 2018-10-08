@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon'
 import HomeScreen from '../screens/HomeScreen'
-import ResourcesNavigator from './ResourcesNavigator'
+import TutorialsNavigator from './TutorialsNavigator'
 import SettingsScreen from '../screens/SettingsScreen'
 
 const HomeStack = createStackNavigator({
@@ -26,7 +26,7 @@ HomeStack.navigationOptions = {
 }
 
 const ResourcesStack = createStackNavigator({
-  Resources: ResourcesNavigator,
+  Resources: TutorialsNavigator,
 }, {
   navigationOptions: () => ({
     header: null

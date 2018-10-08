@@ -1,10 +1,10 @@
 import React from 'react'
-import ResourceCard from './ResourceCard'
+import TutorialCard from './TutorialCard'
 import { View, Text, StyleSheet } from 'react-native'
 import axios from 'axios'
 import network from '../constants/Network'
 
-export default class FeaturedResourcesList extends React.Component {
+export default class FeaturedTutorialsList extends React.Component {
   state = {
     featuredCategories: []
   }
@@ -21,7 +21,7 @@ export default class FeaturedResourcesList extends React.Component {
   renderFeaturedResources = () => {
     if (this.state.featuredCategories) {
       return this.state.featuredCategories.map(category => (
-        <ResourceCard resource={category}
+        <TutorialCard resource={category}
           key={category.slug}
           navigation={this.props.navigation}
         />

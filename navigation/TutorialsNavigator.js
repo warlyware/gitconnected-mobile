@@ -2,10 +2,10 @@ import React from 'react'
 import { createStackNavigator } from 'react-navigation'
 
 import CategoryScreen from '../screens/CategoryScreen'
-import ResourcesScreen from '../screens/ResourcesScreen'
+import TutorialsScreen from '../screens/TutorialsScreen'
 
-const ResourceNavigator = createStackNavigator({
-  Resources: ResourcesScreen,
+const TutorialsNavigator = createStackNavigator({
+  Resources: TutorialsScreen,
   Category: CategoryScreen,
 }, {
   navigationOptions: ({ navigation }) => {
@@ -19,4 +19,4 @@ const ResourceNavigator = createStackNavigator({
   }
 })
 
-export default ResourceNavigator
+export default TutorialsNavigator

@@ -1,10 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import Image from 'react-native-remote-svg'
-import { WebBrowser } from 'expo'
 
-export default class ResourceCard extends React.Component {
+export default class TutorialCard extends React.Component {
   handleCardPress = () => {
     this.props.navigation.navigate({
       routeName: 'Category',

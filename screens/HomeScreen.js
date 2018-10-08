@@ -7,8 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import FeaturedResourcesList from '../components/FeaturedResourcesList'
-
+import FeaturedTutorialsList from '../components/FeaturedTutorialsList'
 import { MonoText } from '../components/StyledText'
 
 export default class HomeScreen extends React.Component {
@@ -30,7 +29,7 @@ export default class HomeScreen extends React.Component {
               Here you can find, save, and view programming resources of all kinds.
           </Text>
           </View>
-          <FeaturedResourcesList navigation={this.props.navigation} />
+          <FeaturedTutorialsList navigation={this.props.navigation} />
         </ScrollView>
         {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
