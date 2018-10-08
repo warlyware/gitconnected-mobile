@@ -6,14 +6,14 @@ import {
   StyleSheet,
   Text,
   View,
-} from 'react-native';
+} from 'react-native'
 import FeaturedTutorialsList from '../components/FeaturedTutorialsList'
 import { MonoText } from '../components/StyledText'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
-  };
+  }
 
   render() {
     return (
@@ -39,7 +39,7 @@ export default class HomeScreen extends React.Component {
           </View>
         </View> */}
       </View>
-    );
+    )
   }
 }
 

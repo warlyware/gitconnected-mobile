@@ -1,9 +1,14 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Dimensions, Linking } from 'react-native'
+import {
+  ScrollView,
+  StyleSheet,
+  Dimensions,
+  Linking,
+  Image
+} from 'react-native'
 import { List, ListItem } from 'react-native-elements'
 import axios from 'axios'
 import network from '../constants/Network'
-import Image from 'react-native-remote-svg'
 
 const screenWidth = Dimensions.get('window').width
 

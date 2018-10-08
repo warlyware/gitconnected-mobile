@@ -43,7 +43,7 @@ export default class AllCategoriesScreen extends React.Component {
           ))}
         </List>
       </ScrollView>
-    );
+    )
   }
 }
 
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   }
-});
+})
