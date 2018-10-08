@@ -6,7 +6,6 @@ import { WebBrowser } from 'expo'
 
 export default class ResourceCard extends React.Component {
   handleCardPress = () => {
-    // console.log(this.props.navigation)
     this.props.navigation.navigate({
       routeName: 'Category',
       key: this.props.resource.slug,

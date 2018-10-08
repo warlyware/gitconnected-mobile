@@ -10,7 +10,7 @@ export default class ResourcesScreen extends React.Component {
   }
 
   fetchResources = async () => {
-    let res = await axios.get(`${ network.API_URL }/v1/tutorials/categories`)
+    let res = await axios.get(`${ network.API_URL }/tutorials/categories`)
     this.setState({ categories: res.data.categories })
   }
 

@@ -1,4 +1,4 @@
 export default {
-  API_URL: 'http://bd528021.ngrok.io'
-  // API_URL: 'http://localhost:5000'
+  API_URL: 'http://localhost:5000/v1'
+  // API_URL: 'https://gitconnected.com/v1'
 }
