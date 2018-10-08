@@ -5,7 +5,7 @@ import CategoryScreen from '../screens/CategoryScreen'
 import TutorialsScreen from '../screens/TutorialsScreen'
 
 const TutorialsNavigator = createStackNavigator({
-  Resources: TutorialsScreen,
+  Tutorials: TutorialsScreen,
   Category: CategoryScreen,
 }, {
   navigationOptions: ({ navigation }) => {

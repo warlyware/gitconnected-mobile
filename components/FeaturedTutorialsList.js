@@ -1,5 +1,5 @@
 import React from 'react'
-import TutorialCard from './TutorialCard'
+import TutorialCategoryCard from './TutorialCategoryCard'
 import { View, Text, StyleSheet } from 'react-native'
 import axios from 'axios'
 import network from '../constants/Network'
@@ -9,19 +9,19 @@ export default class FeaturedTutorialsList extends React.Component {
     featuredCategories: []
   }
 
-  fetchFeaturedResources = async () => {
+  fetchFeaturedCategories = async () => {
     let res = await axios.get(`${network.API_URL}/tutorials/featured-categories`)
     this.setState({ featuredCategories: res.data.categories })
   }
 
   componentDidMount = () => {
-    this.fetchFeaturedResources()
+    this.fetchFeaturedCategories()
   }
 
-  renderFeaturedResources = () => {
+  renderFeaturedCategories = () => {
     if (this.state.featuredCategories) {
       return this.state.featuredCategories.map(category => (
-        <TutorialCard resource={category}
+        <TutorialCategoryCard category={category}
           key={category.slug}
           navigation={this.props.navigation}
         />
@@ -32,8 +32,8 @@ export default class FeaturedTutorialsList extends React.Component {
   render = () => {
     return (
       <View style={styles.container}>
-        <Text style={styles.heading}>Featured Resources</Text>
-        {this.renderFeaturedResources()}
+        <Text style={styles.heading}>Featured Tutorial Categories</Text>
+        {this.renderFeaturedCategories()}
       </View>
     )
   }

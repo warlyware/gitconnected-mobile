@@ -3,19 +3,20 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import Image from 'react-native-remote-svg'
 
-export default class TutorialCard extends React.Component {
+export default class TutorialCategoryCard extends React.Component {
   handleCardPress = () => {
     this.props.navigation.navigate({
       routeName: 'Category',
-      key: this.props.resource.slug,
+      key: this.props.category.slug,
       params: {
-        name: this.props.resource.name
+        name: this.props.category.name
       }
     })
   }
 
   render() {
-    let { slug, name, svg } = this.props.resource
+    let { slug, name, svg } = this.props.category
+    console.log(this.props.category)
     return (
       <TouchableOpacity onPress={this.handleCardPress}>
         <Card>

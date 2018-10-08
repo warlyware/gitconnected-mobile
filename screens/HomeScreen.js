@@ -25,9 +25,9 @@ export default class HomeScreen extends React.Component {
           />
           <View style={styles.infoBox}>
             <Text>
-              Welcome to the gitconnected mobile learning app.
-              Here you can find, save, and view programming resources of all kinds.
-          </Text>
+              Learn to code with this growing list of coding resources from across the internet
+              to help you learn any programming topic, for beginners and experts alike.
+            </Text>
           </View>
           <FeaturedTutorialsList navigation={this.props.navigation} />
         </ScrollView>

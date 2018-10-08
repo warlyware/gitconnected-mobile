@@ -25,16 +25,16 @@ HomeStack.navigationOptions = {
   ),
 }
 
-const ResourcesStack = createStackNavigator({
-  Resources: TutorialsNavigator,
+const TutorialsStack = createStackNavigator({
+  Tutorials: TutorialsNavigator,
 }, {
   navigationOptions: () => ({
     header: null
   })
 })
 
-ResourcesStack.navigationOptions = {
-  tabBarLabel: 'Resources',
+TutorialsStack.navigationOptions = {
+  tabBarLabel: 'Tutorials',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -59,6 +59,6 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  ResourcesStack,
+  TutorialsStack,
   SettingsStack,
 })

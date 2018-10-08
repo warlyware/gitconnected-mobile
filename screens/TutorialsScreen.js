@@ -9,23 +9,23 @@ export default class TutorialsScreen extends React.Component {
     categories: []
   }
 
-  fetchResources = async () => {
+  fetchTutorialCategories = async () => {
     let res = await axios.get(`${ network.API_URL }/tutorials/categories`)
     this.setState({ categories: res.data.categories })
   }
 
-  handleResourcePress = (resource) => {
+  handleCategoryPress = (category) => {
     this.props.navigation.navigate({
       routeName: 'Category',
-      key: resource.slug,
+      key: category.slug,
       params: {
-        name: resource.name
+        name: category.name
       }
     })
   }
 
   componentDidMount = () => {
-    this.fetchResources()
+    this.fetchTutorialCategories()
   }
 
   render() {
@@ -34,7 +34,7 @@ export default class TutorialsScreen extends React.Component {
         <List containerStyle={{ marginBottom: 20 }}>
           {this.state.categories.map(category => (
             <ListItem
-              onPress={() => this.handleResourcePress(category)}
+              onPress={() => this.handleCategoryPress(category)}
               key={category.slug}
               roundAvatar
               avatar={category.image}
