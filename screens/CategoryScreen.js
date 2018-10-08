@@ -23,14 +23,16 @@ export default class CategoryScreen extends React.Component {
   componentWillMount = async () => {
     const { key } = this.props.navigation.state
     const res = await axios.get(`${network.API_URL}/tutorials/categories/${key}`)
+    const { category, tutorials } = res.data
+    console.log(res.data.name)
     this.navigationOptions = {
-      title: res.data.name
+      title: category.name
     }
     this.setState({
-      slug: key,
-      tutorials: res.data.tutorials,
-      name: res.data.name,
-      image: res.data.svg
+      slug: category.slug,
+      tutorials,
+      name: category.name,
+      image: category.image
     })
   }
 
