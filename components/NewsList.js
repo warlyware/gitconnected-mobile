@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, Linking, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import { MonoText } from '../components/StyledText'
 import network from '../constants/Network'
@@ -19,14 +19,14 @@ export default class NewsList extends React.Component {
   }
 
   handleNewsPostPress = post => {
-
+    Linking.openURL(post.linkUrl)
   }
 
   componentDidMount() {
     this.fetchNews()
   }
 
-  render() {
+  render = () => {
     return (
       <View style={styles.container}>
         <Text style={styles.heading}>
@@ -36,39 +36,37 @@ export default class NewsList extends React.Component {
           BY DEVELOPERS
         </MonoText>
         {this.state.posts.map(post => (
-          <Card
-          image={
-            post.linkImage.indexOf('svg') === -1
-            ? {uri: post.linkImage}
-            : require('../assets/images/gc-hero.png')
-          }
-          key={post.postTime}
-          title={post.linkTitle}>
-            <View style={styles.infoRow}>
-              <Image
-              source={{ uri: `https://gitconnected.com/public/images/tutorials/${post.category}` }}
-              style={styles.smallImage}/>
-              <Text>
-                {post.categoryName}
-              </Text>
-              <Image
-              source={{ uri: post.favicon}}
-              style={[ styles.smallImage, { marginLeft: 10} ]}/>
-              <Text>
-                {post.domain}
-              </Text>
-            </View>
-            {post.ownerUsername !== 'treyhuffine' &&
-              <View style={[ styles.infoRow, { paddingTop: 8 } ]}>
+          <TouchableOpacity key={post.postTime}
+          onPress={() => this.handleNewsPostPress(post)}>
+            <Card image={
+              post.linkImage.indexOf('svg') === -1
+              ? {uri: post.linkImage}
+              : require('../assets/images/gc-hero.png')
+            }
+            title={post.linkTitle}>
+              <View style={styles.infoRow}>
                 <Image
-                source={{ uri: post.ownerAvatarUrl }}
+                source={{ uri: `https://gitconnected.com/public/images/tutorials/${post.category}` }}
                 style={styles.smallImage}/>
                 <Text>
-                  {post.ownerUsername}
+                  {post.categoryName}
+                </Text>
+                <Image
+                source={{ uri: post.favicon}}
+                style={[ styles.smallImage, { marginLeft: 10} ]}/>
+                <Text>
+                  {post.domain}
                 </Text>
               </View>
-            }
-          </Card>
+              {post.ownerUsername !== 'treyhuffine' &&
+                <View style={[ styles.infoRow, { paddingTop: 8 } ]}>
+                  <Text>
+                    Posted by {post.ownerUsername}
+                  </Text>
+                </View>
+              }
+            </Card>
+          </TouchableOpacity>
         ))}
       </View>
     )
