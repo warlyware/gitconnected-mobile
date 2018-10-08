@@ -58,10 +58,13 @@ export default class NewsList extends React.Component {
                   {post.domain}
                 </Text>
               </View>
-              {post.ownerUsername !== 'treyhuffine' &&
+              {(post.ownerUsername !== 'treyhuffine' || post.ownerUsername !== 'warlyware') &&
                 <View style={[ styles.infoRow, { paddingTop: 8 } ]}>
                   <Text>
-                    Posted by {post.ownerUsername}
+                    Posted by {(post.ownerUsername === 'treyhuffine' || post.ownerUsername === 'warlyware')
+                      ? 'gitconnected'
+                      : post.ownerUsername
+                    }
                   </Text>
                 </View>
               }
