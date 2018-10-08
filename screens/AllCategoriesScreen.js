@@ -4,7 +4,7 @@ import { List, ListItem } from 'react-native-elements'
 import axios from 'axios'
 import network from '../constants/Network'
 
-export default class TutorialsScreen extends React.Component {
+export default class AllCategoriesScreen extends React.Component {
   state = {
     categories: []
   }

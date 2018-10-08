@@ -2,10 +2,10 @@ import React from 'react'
 import { createStackNavigator } from 'react-navigation'
 
 import CategoryScreen from '../screens/CategoryScreen'
-import TutorialsScreen from '../screens/TutorialsScreen'
+import AllCategoriesScreen from '../screens/AllCategoriesScreen'
 
 const TutorialsNavigator = createStackNavigator({
-  Tutorials: TutorialsScreen,
+  AllCategoriesScreen: AllCategoriesScreen,
   Category: CategoryScreen,
 }, {
   navigationOptions: ({ navigation }) => {
