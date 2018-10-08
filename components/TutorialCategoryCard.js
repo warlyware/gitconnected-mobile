@@ -16,7 +16,6 @@ export default class TutorialCategoryCard extends React.Component {
 
   render() {
     let { slug, name, svg } = this.props.category
-    console.log(this.props.category)
     return (
       <TouchableOpacity onPress={this.handleCardPress}>
         <Card>

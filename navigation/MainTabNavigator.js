@@ -3,22 +3,22 @@ import { Platform } from 'react-native'
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 import TabBarIcon from '../components/TabBarIcon'
-import HomeScreen from '../screens/HomeScreen'
+import NewsScreen from '../screens/NewsScreen'
 import TutorialsNavigator from './TutorialsNavigator'
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const NewsStack = createStackNavigator({
+  News: NewsScreen,
 })
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+NewsStack.navigationOptions = {
+  tabBarLabel: 'News',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-home${focused ? '' : '-outline'}`
-          : 'md-home'
+          ? `ios-paper${focused ? '' : '-outline'}`
+          : 'md-paper'
       }
     />
   ),
@@ -47,6 +47,6 @@ TutorialsStack.navigationOptions = {
 }
 
 export default createBottomTabNavigator({
-  HomeStack,
+  NewsStack,
   TutorialsStack
 })

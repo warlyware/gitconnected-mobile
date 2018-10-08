@@ -24,7 +24,6 @@ export default class CategoryScreen extends React.Component {
     const { key } = this.props.navigation.state
     const res = await axios.get(`${network.API_URL}/tutorials/categories/${key}`)
     const { category, tutorials } = res.data
-    console.log(res.data.name)
     this.navigationOptions = {
       title: category.name
     }
