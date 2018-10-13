@@ -14,7 +14,7 @@ export default class NewsCard extends React.Component {
       <TouchableOpacity
       onPress={() => this.handleNewsPostPress(post)}>
         <Card image={
-          post.linkImage.indexOf('svg') === -1
+          post.linkImage && post.linkImage.indexOf('svg') === -1
           ? {uri: post.linkImage}
           : require('../assets/images/gc-hero.png')
         }

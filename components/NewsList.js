@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import { MonoText } from './StyledText'
 import NewsCard from './NewsCard'
 import network from '../constants/Network'
@@ -8,14 +8,27 @@ import network from '../constants/Network'
 
 export default class NewsList extends React.Component {
   state = {
-    posts: []
+    posts: [],
+    nextPage: null,
+    flatListReady: false
   }
 
   fetchNews = async () => {
-    let res = await axios.get(`${ network.API_URL }/posts/feed`)
+    url = this.state.nextPage
+      ? `${ network.API_URL }/posts/feed?page=${this.state.nextPage}`
+      : `${ network.API_URL }/posts/feed`
+
+    let res = await axios.get(url)
+    let posts = this.state.posts.length ? [ ...this.state.posts, ...res.data.posts ] : res.data.posts
+    console.log(res.data.nextPage)
     this.setState({
-      posts: res.data.posts
+      posts,
+      nextPage: res.data.nextPage ? res.data.nextPage : null
     })
+  }
+
+  renderItem = ({ item }) => {
+    return <NewsCard key={item.postTime} post={item} />
   }
 
   componentDidMount() {
@@ -31,10 +44,14 @@ export default class NewsList extends React.Component {
         <MonoText style={styles.subHeading}>
           BY DEVELOPERS
         </MonoText>
-        {this.state.posts.map(post => (
-          <NewsCard key={post.postTime}
-          post={post} />
-        ))}
+        {this.state.posts.length &&
+          <FlatList keyExtractor={post => post.postTime}
+          onScroll={this.scrolled}
+          data={this.state.posts}
+          renderItem={this.renderItem}
+          onEndReached={this.fetchNews}
+          onEndReachedThreshold={0}
+          />}
       </View>
     )
   }

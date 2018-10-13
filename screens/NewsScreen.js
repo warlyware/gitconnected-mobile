@@ -16,14 +16,14 @@ export default class NewsScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Image resizeMode={'cover'}
-            style={styles.hero}
-            source={require('../assets/images/gc-hero.png')}
-          />
-          <NewsList />
-        </ScrollView>
+      <View style={[styles.container, styles.contentContainer]}>
+        {/* <Image resizeMode={'cover'}
+          style={styles.hero}
+          source={require('../assets/images/gc-hero.png')}
+        /> */}
+        {/* <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        </ScrollView> */}
+        <NewsList />
       </View>
     )
   }
