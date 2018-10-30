@@ -44,7 +44,7 @@ export default class NewsList extends React.Component {
         <MonoText style={styles.subHeading}>
           BY DEVELOPERS
         </MonoText>
-        {this.state.posts.length &&
+        {!!this.state.posts.length &&
           <FlatList keyExtractor={post => post.postTime}
           onScroll={this.scrolled}
           data={this.state.posts}

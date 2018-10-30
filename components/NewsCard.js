@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, Linking, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 
-export default class NewsCard extends React.Component {
+export default class NewsCard extends React.PureComponent {
 
   handleNewsPostPress = post => {
     Linking.openURL(post.linkUrl)
@@ -14,8 +14,8 @@ export default class NewsCard extends React.Component {
       <TouchableOpacity
       onPress={() => this.handleNewsPostPress(post)}>
         <Card image={
-          post.linkImage && post.linkImage.indexOf('svg') === -1
-          ? {uri: post.linkImage}
+          !!post.linkImage && post.linkImage.indexOf('svg') === -1
+          ? {uri: post.title}
           : require('../assets/images/gc-hero.png')
         }
         title={post.linkTitle}>

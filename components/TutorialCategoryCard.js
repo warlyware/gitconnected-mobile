@@ -27,9 +27,6 @@ export default class TutorialCategoryCard extends React.Component {
             <Text style={styles.name}>
               {name}
             </Text>
-            {/* <Text style={styles.description}>
-              This is where a description would go.
-            </Text> */}
           </View>
         </Card>
       </TouchableOpacity>

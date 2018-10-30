@@ -52,7 +52,7 @@ export default class CategoryScreen extends React.Component {
               onPress={() => this.handleTutorialPress(tutorial)}
               key={id}
               title={tutorial.name}
-              badge={{ value: tutorial.externalScore }}
+              badge={{ value: tutorial.score }}
             />
           ))}
         </List>
