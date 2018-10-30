@@ -15,10 +15,10 @@ export default class NewsCard extends React.PureComponent {
       onPress={() => this.handleNewsPostPress(post)}>
         <Card image={
           !!post.linkImage && post.linkImage.indexOf('svg') === -1
-          ? {uri: post.title}
+          ? {uri: post.linkImage}
           : require('../assets/images/gc-hero.png')
         }
-        title={post.linkTitle}>
+        title={post.title}>
           <View style={styles.infoRow}>
             <Image
             source={{ uri: `https://gitconnected.com/public/images/tutorials/${post.category}` }}
