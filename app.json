@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "gitconnected-mobile",
-    "description": "A very interesting project.",
+    "description": "The mobile home of gitconnected.com",
     "slug": "gitconnected-mobile",
     "privacy": "public",
     "platforms": [
