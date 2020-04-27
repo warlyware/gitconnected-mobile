@@ -17,7 +17,7 @@ NewsStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-paper${focused ? '' : '-outline'}`
+          ? 'ios-paper'
           : 'md-paper'
       }
     />
@@ -39,7 +39,7 @@ TutorialsStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-        ? `ios-school${focused ? '' : '-outline'}`
+        ? 'ios-school'
         : 'md-school'
       }
     />
