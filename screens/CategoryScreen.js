@@ -6,7 +6,7 @@ import {
   Linking,
   Image
 } from 'react-native'
-import { List, ListItem } from 'react-native-elements'
+import { ListItem } from 'react-native-elements'
 import axios from 'axios'
 import network from '../constants/Network'
 
@@ -36,7 +36,6 @@ export default class CategoryScreen extends React.Component {
   }
 
   handleTutorialPress = (tutorial) => {
-    console.log('tutorial', tutorial)
     Linking.openURL(tutorial.originalLink)
   }
 
@@ -47,16 +46,14 @@ export default class CategoryScreen extends React.Component {
           style={styles.image}
           source={{ uri: this.state.image || '../assets/images/robot-dev.png' }}
         />
-        <List containerStyle={{ marginBottom: 20 }}>
-          {this.state.tutorials.map((tutorial, id) => (
-            <ListItem
-              onPress={() => this.handleTutorialPress(tutorial)}
-              key={id}
-              title={tutorial.name}
-              badge={{ value: tutorial.score }}
-            />
-          ))}
-        </List>
+        {this.state.tutorials.map((tutorial, id) => (
+          <ListItem
+            onPress={() => this.handleTutorialPress(tutorial)}
+            key={id}
+            title={tutorial.name}
+            badge={{ value: tutorial.score }}
+          />
+        ))}
       </ScrollView>
     )
   }
