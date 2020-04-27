@@ -36,7 +36,8 @@ export default class CategoryScreen extends React.Component {
   }
 
   handleTutorialPress = (tutorial) => {
-    Linking.openURL(tutorial.url)
+    console.log('tutorial', tutorial)
+    Linking.openURL(tutorial.originalLink)
   }
 
   render = () => {

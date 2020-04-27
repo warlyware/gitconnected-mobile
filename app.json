@@ -5,8 +5,11 @@
     "slug": "gitconnected-mobile",
     "privacy": "public",
     "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "0.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -24,7 +27,9 @@
       "bundleIdentifier": "com.warlyware.gitconnected"
     },
     "android": {
-      "package": "com.warlyware.gitconnected"
+      "package": "com.warlyware.gitconnected",
+      "permissions": [],
+      "versionCode": 2
     }
   }
 }
