@@ -1,5 +1,5 @@
 import React from 'react'
-import { createStackNavigator } from 'react-navigation'
+import { createStackNavigator } from '@react-navigation/stack'
 
 import CategoryScreen from '../screens/CategoryScreen'
 import AllCategoriesScreen from '../screens/AllCategoriesScreen'
