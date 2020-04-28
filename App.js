@@ -17,7 +17,7 @@ export default props => {
   } else {
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        {Platform.OS === 'ios' && <StatusBar backgroundColor="#265EA4" barStyle="dark-content" />}
         <AppNavigator />
       </View>
     )

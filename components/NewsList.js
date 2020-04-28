@@ -39,12 +39,12 @@ export default class NewsList extends React.Component {
   render = () => {
     return (
       <View style={styles.container}>
-        <View style={[styles.shadow, { backgroundColor: 'white',  }]}>
+        <View style={[styles.shadow, { backgroundColor: '#265EA4', zIndex: 1  }]}>
           <Text style={styles.heading}>
-            News For Developers
+            gitconnected News
           </Text>
           <MonoText style={styles.subHeading}>
-            BY DEVELOPERS
+            FOR DEVS BY DEVS
           </MonoText>
         </View>
         {!!this.state.posts.length &&
@@ -66,14 +66,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   heading: {
+    letterSpacing: 1,
     fontSize: 28,
     alignSelf: 'center',
-    marginTop: 20
+    marginTop: 12,
+    marginBottom: 4,
+    color: 'white'
   },
   subHeading: {
     fontSize: 12,
     alignSelf: 'center',
-    marginBottom: 8
+    marginBottom: 12,
+    color: 'white'
   },
   smallImage: {
     height: 15,
@@ -91,7 +95,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 10,
     },
-    shadowOpacity: 0.20,
+    shadowOpacity: 0.30,
     shadowRadius: 4.65,
 
     elevation: 8,

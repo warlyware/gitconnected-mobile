@@ -13,7 +13,7 @@ const TutorialsNavigator = createStackNavigator({
     if (navigation.state.params && navigation.state.params.name) {
       title = navigation.state.params.name
     } else {
-      title = 'Resouces'
+      title = 'Tutorials'
     }
     return { title }
   }
