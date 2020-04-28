@@ -20,7 +20,7 @@ export default class CategoryScreen extends React.Component {
     image: ''
   }
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const { categoryToFetch } = this.props.route.params
     const res = await axios.get(`${network.API_URL}/tutorials/categories/${categoryToFetch}`)
     const { category, tutorials } = res.data
