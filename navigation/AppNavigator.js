@@ -1,12 +1,13 @@
 import React from 'react'
 
-// import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
 import { Platform } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import NewsScreen from '../screens/NewsScreen'
 import AllCategoriesScreen from '../screens/AllCategoriesScreen'
+import CategoryScreen from '../screens/CategoryScreen'
 import TabBarIcon from '../components/TabBarIcon'
 
 // import MainTabNavigator from './MainTabNavigator'
@@ -15,7 +16,17 @@ import TabBarIcon from '../components/TabBarIcon'
 //   Main: MainTabNavigator,
 // })
 
-// const Stack = createStackNavigator()
+const Stack = createStackNavigator()
+
+function TutorialsNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="AllCategories" component={AllCategoriesScreen} />
+      <Stack.Screen name="Category" component={CategoryScreen} />
+    </Stack.Navigator>
+  )
+}
+
 const Tab = createBottomTabNavigator()
 
 export default function AppNavigator() {
@@ -34,17 +45,10 @@ export default function AppNavigator() {
         ),
       })}>
         <Tab.Screen name="News" component={NewsScreen} />
-        <Tab.Screen name="AllCategories" component={AllCategoriesScreen}
+        <Tab.Screen name="Tutorials" component={TutorialsNavigator}
           options={{ title: 'Tutorials' }}
         />
       </Tab.Navigator>
-      {/* <Stack.Navigator>
-        <Stack.Screen name="News" component={NewsScreen}
-        options={{ title: 'Overview' }}
-
-        />
-        <Stack.Screen name="Categories" component={AllCategoriesScreen} />
-      </Stack.Navigator> */}
     </NavigationContainer>
   )
 }

@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import axios from 'axios'
 import network from '../constants/Network'
+import { CommonActions } from '@react-navigation/native'
 
 export default class AllCategoriesScreen extends React.Component {
   state = {
@@ -15,13 +16,15 @@ export default class AllCategoriesScreen extends React.Component {
   }
 
   handleCategoryPress = (category) => {
-    this.props.navigation.navigate({
-      routeName: 'Category',
-      key: category.slug,
-      params: {
-        name: category.name
-      }
-    })
+    this.props.navigation.dispatch(
+      CommonActions.navigate({
+        name: 'Category',
+        params: {
+          categoryToFetch: category.slug,
+          name: category.name
+        }
+      })
+    )
   }
 
   componentDidMount = () => {

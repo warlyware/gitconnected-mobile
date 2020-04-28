@@ -2,16 +2,20 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Card } from 'react-native-elements'
 import Image from 'react-native-remote-svg'
+import { CommonActions } from '@react-navigation/native'
+
 
 export default class TutorialCategoryCard extends React.Component {
   handleCardPress = () => {
-    this.props.navigation.navigate({
-      routeName: 'Category',
-      key: this.props.category.slug,
-      params: {
-        name: this.props.category.name
-      }
-    })
+    this.props.navigations.dispatch(
+      CommonActions.navigate({
+        name: 'Category',
+        params: {
+          categoryToFetch: this.props.category.slug,
+          name: this.props.category.name
+        }
+      })
+    )
   }
 
   render() {
