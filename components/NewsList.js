@@ -39,12 +39,14 @@ export default class NewsList extends React.Component {
   render = () => {
     return (
       <View style={styles.container}>
-        <Text style={styles.heading}>
-          News For Developers
-        </Text>
-        <MonoText style={styles.subHeading}>
-          BY DEVELOPERS
-        </MonoText>
+        <View style={[styles.shadow, { backgroundColor: 'white',  }]}>
+          <Text style={styles.heading}>
+            News For Developers
+          </Text>
+          <MonoText style={styles.subHeading}>
+            BY DEVELOPERS
+          </MonoText>
+        </View>
         {!!this.state.posts.length &&
           <FlatList keyExtractor={post => (post.id + post.createdAt).toString()}
           onScroll={this.scrolled}
@@ -70,7 +72,8 @@ const styles = StyleSheet.create({
   },
   subHeading: {
     fontSize: 12,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginBottom: 8
   },
   smallImage: {
     height: 15,
@@ -81,5 +84,16 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-start'
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 4.65,
+
+    elevation: 8,
   }
 })

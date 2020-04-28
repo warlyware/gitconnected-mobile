@@ -13,14 +13,16 @@ export default class NewsCard extends React.PureComponent {
   render() {
     let { post } = this.props
     return (
-      <TouchableOpacity
+      <TouchableOpacity style={styles.shadow}
       onPress={this.handleNewsPostPress}>
         <Card image={
           !!post.linkImage && post.linkImage.indexOf('svg') === -1
           ? {uri: post.linkImage}
           : require('../assets/images/gc-hero.png')
         }
-        title={post.title}>
+        imageProps={{ resizeMode: 'cover' }}
+        title={post.title}
+        titleStyle={{ paddingLeft: 8, paddingRight: 8 }}>
           <View style={styles.infoRow}>
             {/* <Image
             source={{ uri: `https://gitconnected.com/public/images/tutorials/${post.category}` }}
@@ -63,5 +65,16 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.30,
+    shadowRadius: 4.65,
+
+    elevation: 8,
   }
 })
