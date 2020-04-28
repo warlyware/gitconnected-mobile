@@ -41,7 +41,7 @@ export default class NewsList extends React.Component {
       <View style={styles.container}>
         <View style={[styles.shadow, { backgroundColor: '#265EA4', zIndex: 1  }]}>
           <Text style={styles.heading}>
-            gitconnected News
+            Coding News
           </Text>
           <MonoText style={styles.subHeading}>
             FOR DEVS BY DEVS
