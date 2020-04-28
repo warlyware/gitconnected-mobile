@@ -50,8 +50,8 @@ export default class NewsList extends React.Component {
           onScroll={this.scrolled}
           data={this.state.posts}
           renderItem={this.renderItem}
-          onEndReached={debounce(this.fetchNews, 100)}
-          onEndReachedThreshold={0.5}
+          onEndReached={debounce(this.fetchNews, 200)}
+          onEndReachedThreshold={3}
           />}
       </View>
     )

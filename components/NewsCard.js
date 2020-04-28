@@ -1,18 +1,20 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, Linking, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Card } from 'react-native-elements'
+import UserAvatar from '../components/UserAvatar'
 
 export default class NewsCard extends React.PureComponent {
 
-  handleNewsPostPress = post => {
-    Linking.openURL(post.linkUrl)
+  handleNewsPostPress = () => {
+    Linking.openURL(this.props.post.linkUrl)
   }
 
   render() {
     let { post } = this.props
     return (
       <TouchableOpacity
-      onPress={() => this.handleNewsPostPress(post)}>
+      onPress={this.handleNewsPostPress}>
         <Card image={
           !!post.linkImage && post.linkImage.indexOf('svg') === -1
           ? {uri: post.linkImage}
@@ -20,7 +22,7 @@ export default class NewsCard extends React.PureComponent {
         }
         title={post.title}>
           <View style={styles.infoRow}>
-            <Image
+            {/* <Image
             source={{ uri: `https://gitconnected.com/public/images/tutorials/${post.category}` }}
             style={styles.smallImage}/>
             <Text>
@@ -28,15 +30,17 @@ export default class NewsCard extends React.PureComponent {
             </Text>
             <Image
             source={{ uri: post.favicon}}
-            style={[ styles.smallImage, { marginLeft: 10} ]}/>
-            <Text>
+            style={[ styles.smallImage, { marginLeft: 10} ]}/> */}
+            <MaterialCommunityIcons name="web" size={15} />
+            <Text style={{ paddingLeft: 14 }}>
               {post.domain}
             </Text>
           </View>
-          {(post.ownerUsername !== 'treyhuffine' || post.ownerUsername !== 'warlyware') &&
+          {(post.ownerUsername !== 'treyhuffine') &&
             <View style={[ styles.infoRow, { paddingTop: 8 } ]}>
-              <Text>
-                Posted by {(post.ownerUsername === 'treyhuffine' || post.ownerUsername === 'warlyware')
+              <UserAvatar uri={post.ownerAvatarUrl}/>
+              <Text style={{ paddingLeft: 8}}>
+                Posted by {(post.ownerUsername === 'treyhuffine')
                   ? 'gitconnected'
                   : post.ownerUsername
                 }
@@ -51,13 +55,13 @@ export default class NewsCard extends React.PureComponent {
 
 const styles = StyleSheet.create({
   smallImage: {
-    height: 15,
-    width: 15,
+    height: 10,
+    width: 10,
     marginRight: 3,
   },
   infoRow: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'flex-start'
+    alignItems: 'center'
   }
 })
