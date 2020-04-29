@@ -1,20 +1,21 @@
 {
   "expo": {
-    "name": "gitconnected-mobile",
-    "description": "The mobile home of gitconnected.com",
-    "slug": "gitconnected-mobile",
+    "name": "gitconnected",
+    "description": "Coding News and Tutorials from gitconnected.com",
+    "slug": "gitconnected",
     "privacy": "public",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "0.0.2",
+    "primaryColor": "#2861AA",
+    "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2861AA"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,12 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.warlyware.gitconnected"
+      "bundleIdentifier": "com.gitconnected.gitconnected-mobile",
+      "supportsTablet": false
     },
     "android": {
-      "package": "com.warlyware.gitconnected",
-      "permissions": [],
-      "versionCode": 2
-    }
+      "package": "com.gitconnected.gitconnected_mobile",
+      "permissions": []    }
   }
 }

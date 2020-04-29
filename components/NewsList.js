@@ -5,6 +5,7 @@ import { MonoText } from './StyledText'
 import NewsCard from './NewsCard'
 import network from '../constants/Network'
 import debounce from 'lodash.debounce'
+import Colors from '../constants/Colors'
 
 
 export default class NewsList extends React.Component {
@@ -39,7 +40,7 @@ export default class NewsList extends React.Component {
   render = () => {
     return (
       <View style={styles.container}>
-        <View style={[styles.shadow, { backgroundColor: '#265EA4', zIndex: 1  }]}>
+        <View style={[styles.shadow, { backgroundColor: Colors.blue, zIndex: 1  }]}>
           <Text style={styles.heading}>
             Coding News
           </Text>

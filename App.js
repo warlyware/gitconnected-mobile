@@ -6,6 +6,7 @@ import * as Asset from 'expo-asset'
 import { useFonts } from '@use-expo/font'
 
 import AppNavigator from './navigation/AppNavigator'
+import Colors from './constants/Colors'
 
 export default props => {
   let [ fontsLoaded ] = useFonts({
@@ -17,7 +18,7 @@ export default props => {
   } else {
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        {Platform.OS === 'ios' && <StatusBar backgroundColor="#265EA4" barStyle="dark-content" />}
+        {Platform.OS === 'ios' && <StatusBar backgroundColor={Colors.blue} barStyle="dark-content" />}
         <AppNavigator />
       </View>
     )
